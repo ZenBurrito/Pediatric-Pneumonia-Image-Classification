@@ -17,6 +17,11 @@ We were then tasked with building a Convolutional Neural Network to classify the
 We were given three different folders, a Train, Test, and Validation folder. Each section contained a different amount of photos, each labeled 'NORMAL' (0) and 'PNEUMONIA' (1). After viewing what the images looked like, to the naked untrained eye you are unable to tell the difference between effected lungs and healthy lungs, however computers look at images much differently. Assigning values to individual pixels instead of looking at the image as a whole. That being said using a CNN model we were able to identify the difference between them 91% of the time.
 
 
+![Normal_lungs](Images/Normal_lungs.png)
+
+![Pneumonia_lungs](Images/Pneumonia_lungs.png)
+
+
 # Data Preperation & Analysis
 
 After loading in the dataset, we labeled the two different types of images as Normal and Pneumonia, and then signed a binary classification for them (1,0). 
