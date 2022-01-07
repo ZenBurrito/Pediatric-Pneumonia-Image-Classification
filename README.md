@@ -18,7 +18,7 @@ In this project, we developed a neural network model to predict whether a chest 
 
 # Data Understanding
 
-We were given three different folders, a Train, Test, and Validation folder. Each section contained a different amount of photos, each labeled 'NORMAL' (0) and 'PNEUMONIA' (1). After viewing what the images looked like, to the naked untrained eye you are unable to tell the difference between affected lungs and healthy lungs, however, computers look at images much differently. Assigning values to individual pixels instead of looking at the image as a whole. That being said using a CNN model we were able to identify the difference between the 91% of the time.
+We were given three different folders, a Train, Test, and Validation folder. The validation folder only had 16 photos, which we deemed to be an irrelevant amount. The way we dealt with this is by creating our own validation split within the training data, and we left the test data alone. Each section contained a different amount of photos, each labeled 'NORMAL' (0) and 'PNEUMONIA' (1). After viewing what the images looked like, to the naked untrained eye you are unable to tell the difference between affected lungs and healthy lungs, however, computers look at images much differently. Assigning values to individual pixels instead of looking at the image as a whole. That being said using a CNN model we were able to identify the difference between the 87% of the time.
 
 The data we used in this modeling was initially stored at Mendeley Data, a secure cloud-based repository by Kermany et al,2018 (Kermany Daniel; Zhang, Kang; Goldbaum, Michael (2018), “Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification”, Mendeley Data, V2, doi: 10.17632/rscbjbr9sj.2) and is available on kaggle. [Data](https://www.kaggle.com/andrewmvd/pediatric-pneumonia-chest-xray?select=Pediatric+Chest+X-ray+Pneumonia).
 
@@ -29,9 +29,9 @@ After loading in the dataset, we labeled the two different types of images as No
 
 Our first models were created using the initially generated datasets, after training these models we then realized we would need to perform data augmentation to produce quality results. We conduct a variety of augmentations utilizing the ImageDataGenerator. Augmentation was only performed on the train_set, again withholding 20% from the validation set. This augmented data set was then used to train subsequent models in our final network.
 
-![Normal_lungs](Images/Normal_lungs.png)
+![Normal_lungs](Images/normal_five.png)
 
-![Pneumonia_lungs](Images/Pneumonia_lungs.png)
+![Pneumonia_lungs](Images/pneumonia_fives.png)
 
 
 # Modeling
