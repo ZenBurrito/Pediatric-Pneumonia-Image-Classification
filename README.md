@@ -4,7 +4,7 @@
 
 Chest X-ray images (anterior-posterior) were selected from retrospective cohorts of pediatric patients of one to five years old from Guangzhou Women and Children’s Medical Center, Guangzhou. All chest X-ray imaging was performed as part of patients’ routine clinical care.
 
-For the analysis of chest x-ray images, all chest radiographs were initially screened for quality control by removing all low-quality or unreadable scans. The diagnoses for the images were then graded by two expert physicians before being cleared for training the AI system. To account for any grading errors, the evaluation set was also checked by a third expert. For a high level overview of the project please see our [presentation](
+For the analysis of chest x-ray images, all chest radiographs were initially screened for quality control by removing all low-quality or unreadable scans. The diagnoses for the images were then graded by two expert physicians before being cleared for training the AI system. To account for any grading errors, the evaluation set was also checked by a third expert. For a high level overview of the project please see our [presentation](https://github.com/ZenBurrito/Pediatric-Pneumonia-Image-Classification/blob/main/presentation.pdf)
 
 
 # Business Problem & Understanding
@@ -64,7 +64,7 @@ For more information regarding the modeling process please see our [notebook](ht
 ```
 ├── README.md                 <- The top-level README for reviewers of this project
 ├── Final_notebook.ipynb      <- Narrative documentation of analysis in Jupyter notebook
-├── Presentation.pdf          <- PDF version of project 
+├── presentation.pdf          <- PDF version of project 
 ├── Images                    <- Generated from code
 ├── chest_xray                <- Older notebooks, kept to see progress
 '''
