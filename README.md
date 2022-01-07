@@ -26,7 +26,7 @@ The data we used in this modeling was initially stored at Mendeley Data, a secur
 
 ![Pneumonia_lungs](Images/pneumonia_fives.png)
 
-# Data Preperation & Augmentation
+# Data Preparation & Augmentation
 
 In order to pass our image datasets through a neural network we need to preprocess the images into usable data. We rescale the data by dividing by 255 due to the images being x-ray (greyscale). We also resize each image to be 64 by 64 pixels so they are all the same size. Due to the unsuable nature of the validation set given, we utlize a validation split within ImageDataGenerator to produce a 80% - 20% split on our train set - validation set respectively. Class mode is binary as we are trying to predict normal vs. pneumonia images (binary classifcation).
 
