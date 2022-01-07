@@ -52,9 +52,7 @@ This shows the difference between our final models' scores and the baseline mode
 
 # Conclusions
 
-In conclusion, our model was 87% accurate. We chose this model due to its capabilities to determine the minor differences in photos that, to the naked eye, don't seem to have discernable features. After testing different augmentations and parameters in our model we believe we have come to the best model for the data that we currently have. With new data introduced to the model, we could further improve it with more time to train as well. We know that our model can not only help people but also save the hospital money as well. 
-
-# Next Steps
+Comparing all the accuracy and recall scores form the models, the score form the fifth model was selected since it showed the highest recall score of 98% while maintaining a high accuracy score of 87%. Thus, we recommend the Radiological society of North America to leverage this information in the day to day x-ray evaluation of pediatric pneumonia. Application of this tool helps pediatricians and radiologists to classify pneumonic chest x-ray accurately 87% of the time and 98% of the time the physician could minimize the false negative error. The best trade off between accuracy and recall scores was used to address the issue of false negative rate. Maximum reduction of false negative errors is critical to eliminate misdiagnosing patients with pneumonia as being healthy, which would lead to the child not receiving treatment. This in turn helps to prevent the spread of pneumonia of infectious origin. We recommend this model to be used as a first diagnostic step in identification of pediatric pneumonia. 
 
 Like with every project, it is always crucial to gather more data to further improve the accuracy of our model. Also, branch out to other hospitals to work with their radiology teams. Working with different types of X-ray machines that might have slight alterations in how they print out photos might also be a good idea. Increasing our computational power to train our model more effectively to increase accuracy and recall. 
 
