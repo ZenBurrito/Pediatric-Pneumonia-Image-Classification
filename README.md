@@ -43,7 +43,7 @@ For our first iteration of the neural network model we only used Dense network l
 
 Finally, we wanted to see if a change in the activation function has an impact on the accuracy and recall scores. Therefore, we tried the 'LeakyReLU' activation function on the fifth CNN model instead of 'relu' which we used on the fourth CNN model. The result indicated an increase in recall but a slight decrease in accuracy score. Since our objective is mainly to increase the recall score, while maintaining a relatively higher accuracy score, we intend to use the 'LeakyReLU' activation but not the 'relu'. We felt that the slight trade-off between lower accuracy and higher recall score is justifiable in the context of classifying pneumonia to reduce the number of false-negative results. This helps to minimize the number of patients who have pneumonia but are diagnosed as normal or healthy, and helps to increase the number of correctly diagnosed pneumonic patients using chest X-rays. 
 
-![final matrix](Images/cnn5_conf_mat.png)
+![final matrix](Images/final_model_mtrx.png)
 
 This shows the difference between our final models' scores and the baseline models' scores.
 
