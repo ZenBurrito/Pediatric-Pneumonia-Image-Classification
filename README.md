@@ -22,35 +22,37 @@ We were given three different folders, a Train, Test, and Validation folder. The
 
 The data we used in this modeling was initially stored at Mendeley Data, a secure cloud-based repository by Kermany et al,2018 (Kermany Daniel; Zhang, Kang; Goldbaum, Michael (2018), “Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification”, Mendeley Data, V2, doi: 10.17632/rscbjbr9sj.2) and is available on kaggle. [Data](https://www.kaggle.com/andrewmvd/pediatric-pneumonia-chest-xray?select=Pediatric+Chest+X-ray+Pneumonia).
 
-
-# Data Preperation & Augmentation
-
-After loading in the dataset, we labeled the two different types of images as Normal and Pneumonia, and then signed a binary classification for them (1,0). 
-
-Our first models were created using the initially generated datasets, after training these models we then realized we would need to perform data augmentation to produce quality results. We conduct a variety of augmentations utilizing the ImageDataGenerator. Augmentation was only performed on the train_set, again withholding 20% from the validation set. This augmented data set was then used to train subsequent models in our final network.
-
 ![Normal_lungs](Images/normal_five.png)
 
 ![Pneumonia_lungs](Images/pneumonia_fives.png)
 
+# Data Preperation & Augmentation
+
+In order to pass our image datasets through a neural network we need to preprocess the images into usable data. We rescale the data by dividing by 255 due to the images being x-ray (greyscale). We also resize each image to be 64 by 64 pixels so they are all the same size. Due to the unsuable nature of the validation set given, we utlize a validation split within ImageDataGenerator to produce a 80% - 20% split on our train set - validation set respectively. Class mode is binary as we are trying to predict normal vs. pneumonia images (binary classifcation).
+
+Our first models were created using the initially generated datasets, after training these models we then realized we would need to perform data augmentation to produce quality results. We conduct a variety of augmentations utilizing the ImageDataGenerator. Augmentation was only performed on the train_set, again withholding 20% from the validation set. This augmented data set was then used to train subsequent models in our final network.
+
 
 # Modeling
 
-We built a baseline model, which just predicted the most frequent data type (in this case pneumonia plagued lungs). It had a low accuracy with a high recall. After that we started building a basic CNN model to see if it outperformed, at first, with minimal layers and augmentation, there was not much change from the baseline. However, after adding in extra hidden layers and augmentation to the model. We achieved a 91% accuracy with a ___ recall.
+We built a baseline model, which just predicted the most frequent data type (in this case pneumonia plagued lungs). It had a low accuracy with a high recall. After that we started building a basic CNN model to see if it outperformed, at first, with minimal layers and augmentation, there was not much change from the baseline. However, after adding in extra hidden layers and augmentation to the model we achieved an 87% accuracy with a 98% recall.
 
-For our first iteration of the neural network model we only used Dense network layers to see if we could improve from the dummy model. Our final activation layer will be sigmoid for all future models as we are predicting a binary classification. We will also use binary cross-entropy as our loss function because of this. The Adam optimizer was chosen as it is well known to perform the best for image classification. The input shape matches the image resizing we did in the data generation step. While the simple performed well on the train data, as well as the validation data, it did not on the test data and we still have a high amount of false predictions. Our model is heavily overfitted as we would expect from a simple dense network. We will attempt to add in convolutional layers to improve the model and reduce overfitting.
+![baseline matrix](Images/baseline_matrix.png)
 
-We wanted to see if a change in the activation function has an impact on the accuracy and recall scores. Therefore, we tried the 'LeakyReLU' activation function on the fifth CNN model instead of 'relu' which we used on the fourth CNN model. The result indicated an increase in accuracy but decreased the recall score. Since our objective is mainly to increase the recall score, while maintaining a relatively higher accuracy score, we intend to use the 'relu' activation but not the 'LeakyReLU'. We felt that the slight trade-off between lower accuracy and higher recall score is justifiable in the context of classifying pneumonia to reduce the number of false-negative results. This helps to minimize the number of patients who have pneumonia but are diagnosed as normal or healthy. This also helps to increase the number of correctly diagnosed pneumonic patients using chest X-rays.
+For our first iteration of the neural network model we only used Dense network layers to see if we could improve from the dummy model. Our final activation layer will be sigmoid for all future models as we are predicting a binary classification. We will also use binary cross-entropy as our loss function because of this. The Adam optimizer was chosen as it is well known to perform the best for image classification. The input shape matches the image resizing we did in the data generation step. Following the dense networks, we iterated through adding multiple convolutional layers, as well as pooling and dropout in an attempt to increase accuracy further. We also attempted to run a model using augmented data to see if it had an effect. 
 
-# Visualizations
+Finally, we wanted to see if a change in the activation function has an impact on the accuracy and recall scores. Therefore, we tried the 'LeakyReLU' activation function on the fifth CNN model instead of 'relu' which we used on the fourth CNN model. The result indicated an increase in recall but a slight decrease in accuracy score. Since our objective is mainly to increase the recall score, while maintaining a relatively higher accuracy score, we intend to use the 'LeakyReLU' activation but not the 'relu'. We felt that the slight trade-off between lower accuracy and higher recall score is justifiable in the context of classifying pneumonia to reduce the number of false-negative results. This helps to minimize the number of patients who have pneumonia but are diagnosed as normal or healthy, and helps to increase the number of correctly diagnosed pneumonic patients using chest X-rays. 
+
+![final matrix](Images/cnn5_conf_mat.png)
 
 This shows the difference between our final models' scores and the baseline models' scores.
+
 ![image](Images/Comparison.png)
 
 
 # Conclusions
 
-In conclusion, our model was 91% accurate. We chose this model due to its capabilities to determine the minor differences in photos that, to the naked eye, don't seem to have discernable features. After testing different augmentations and parameters in our model we believe we have come to the best model for the data that we currently have. With new data introduced to the model, we could further improve it with more time to train as well. We know that our model can not only help people but also save the hospital money as well. 
+In conclusion, our model was 87% accurate. We chose this model due to its capabilities to determine the minor differences in photos that, to the naked eye, don't seem to have discernable features. After testing different augmentations and parameters in our model we believe we have come to the best model for the data that we currently have. With new data introduced to the model, we could further improve it with more time to train as well. We know that our model can not only help people but also save the hospital money as well. 
 
 # Next Steps
 
