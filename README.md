@@ -1,4 +1,4 @@
-# Pediatric-Pneumonia-Image-Classification
+# Pediatric Pneumonia Image Classification: Convolutional Neural Network
 
 # Overview
 
