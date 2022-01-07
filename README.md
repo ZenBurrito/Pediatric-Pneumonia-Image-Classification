@@ -37,11 +37,15 @@ Our first models were created using the initially generated datasets, after trai
 
 We built a baseline model, which just predicted the most frequent data type (in this case pneumonia plagued lungs). It had a low accuracy with a high recall. After that we started building a basic CNN model to see if it outperformed, at first, with minimal layers and augmentation, there was not much change from the baseline. However, after adding in extra hidden layers and augmentation to the model we achieved an 87% accuracy with a 98% recall.
 
+   **Baseline Model**
+
 ![baseline matrix](Images/baseline_matrix.png)
 
 For our first iteration of the neural network model we only used Dense network layers to see if we could improve from the dummy model. Our final activation layer will be sigmoid for all future models as we are predicting a binary classification. We will also use binary cross-entropy as our loss function because of this. The Adam optimizer was chosen as it is well known to perform the best for image classification. The input shape matches the image resizing we did in the data generation step. Following the dense networks, we iterated through adding multiple convolutional layers, as well as pooling and dropout in an attempt to increase accuracy further. We also attempted to run a model using augmented data to see if it had an effect. 
 
 Finally, we wanted to see if a change in the activation function has an impact on the accuracy and recall scores. Therefore, we tried the 'LeakyReLU' activation function on the fifth CNN model instead of 'relu' which we used on the fourth CNN model. The result indicated an increase in recall but a slight decrease in accuracy score. Since our objective is mainly to increase the recall score, while maintaining a relatively higher accuracy score, we intend to use the 'LeakyReLU' activation but not the 'relu'. We felt that the slight trade-off between lower accuracy and higher recall score is justifiable in the context of classifying pneumonia to reduce the number of false-negative results. This helps to minimize the number of patients who have pneumonia but are diagnosed as normal or healthy, and helps to increase the number of correctly diagnosed pneumonic patients using chest X-rays. 
+
+  **Final Model**
 
 ![final matrix](Images/final_model_mtrx.png)
 
